@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    margin-left: 25%;
+    margin-right: 0; 
+    font-family:Arial;
+  }
+
+  #hea {
+    text-align: center;
+  }
+
+  #coloredText {
+    color:  rgb(175, 12, 78)
+  }
+  
+  img {
+    margin-left: 0; 
+    display: flex;
+  }
+
+  #para{
+    font-size: 20px;
+  }
+
+  input{
+    height: 45px;
+  }
+
+  .btn{
+    background-color: rgb(175, 12, 78);
+    color: white;
+    font-family:Arial;
+    border-radius: 0%;
+    text-align: center;
+    padding: 10px 50px;
+  }

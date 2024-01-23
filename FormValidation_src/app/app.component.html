@@ -1,0 +1,98 @@
+<div class="header">
+  <h2 id="hea"><span id="coloredText"> Contact Our </span><br> Customer Support Center</h2>
+  <img src="assets/images/images.jpeg" alt="contact" id="img1">
+</div>
+<br>
+<br>
+
+<p class="text-center" id="para">Contact Information</p>
+<p class="text-center">Please fill out your contact information below</p>
+
+<div class="container">
+  <div class="row">
+    <form [formGroup]="MyForm" >
+      <div class="form-Group">        
+        <div class="row">
+          <div class="col-md-6">
+              <label> Name*</label>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col-md-3">
+                  <input [class.is-invalid]="MyForm.get('firstname')?.invalid && MyForm.get('firstname')?.touched" type="text" class="form-control"  formControlName="firstname">
+                  <label>First Name</label><small [class.d-none]="MyForm.get('firstname')?.valid || MyForm.get('firstname')?.untouched" class="text-danger"> (Firstname is required)</small>
+              </div>
+              <div class="col-md-3">
+                  <input [class.is-invalid]="MyForm.get('lastname')?.invalid && MyForm.get('lastname')?.touched" type="text" class="form-control" formControlName="lastname">
+                  <label>Last Name</label><small [class.d-none]="MyForm.get('lastname')?.valid || MyForm.get('lastname')?.untouched" class="text-danger"> (Lastname is required)</small>
+              </div>
+          </div>                      
+        </div>
+      </div>
+      <br>
+      <div class="form-Group">
+        <div class="col-md-12">
+            <label> Email*</label>
+            <input [class.is-invalid]="MyForm.get('mail')?.invalid && MyForm.get('mail')?.touched" type="email" class="form-control"  formControlName="mail">
+            <small [class.d-none]="MyForm.get('mail')?.valid || MyForm.get('mail')?.untouched" class="text-danger"> Email is required and must include "&#64;" symbol</small>
+        </div>
+      </div>
+      <div class="form-Group">
+        <div class="col-md-12">
+          <label> Phone*</label>
+          <input  [class.is-invalid]="MyForm.get('phone')?.invalid && MyForm.get('phone')?.touched" type="text" class="form-control"  formControlName="phone">
+          <small [class.d-none]="MyForm.get('phone')?.valid || MyForm.get('phone')?.untouched" class="text-danger">Phone Number is required it should be of 10 digits</small>
+        </div>
+      </div>
+      <div class="form-Group">
+        <div class="col-md-12">
+          <label> Address*</label>
+          <input [class.is-invalid]="MyForm.get('addr')?.invalid && MyForm.get('addr')?.touched" type="text" class="form-control"  formControlName="addr">
+          <small [class.d-none]="MyForm.get('addr')?.valid || MyForm.get('addr')?.untouched" class="text-danger">Address is required</small>
+        </div>
+      </div>
+      <div class="form-Group">
+        <div class="col-md-12">
+          <label> City*</label>
+          <input [class.is-invalid]="MyForm.get('city')?.invalid && MyForm.get('city')?.touched" type="text" class="form-control"  formControlName="city">
+          <small [class.d-none]="MyForm.get('city')?.valid || MyForm.get('city')?.untouched" class="text-danger">This Field is required and must contain minimum 4 letters</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>State*</label>
+        <select  [class.is-invalid]="MyForm.get('state')?.invalid && MyForm.get('state')?.touched" class="form-control" formControlName="state">
+          <option value="low">Maharashtra</option>
+          <option value="medium">Gujrat</option>
+          <option value="high">Uttar Pradesh</option>
+        </select>
+        <small [class.d-none]="MyForm.get('state')?.valid || MyForm.get('state')?.untouched" class="text-danger"> State is required</small>
+      </div>
+      <div class="form-Group">
+        <div class="col-md-12">
+          <label> ZIP Code*</label>
+          <input [class.is-invalid]="MyForm.get('zip')?.invalid && MyForm.get('zip')?.touched" type="text" class="form-control"  formControlName="zip">
+          <small [class.d-none]="MyForm.get('zip')?.valid || MyForm.get('zip')?.untouched" class="text-danger">This Field is required and contains only 5 digits</small>
+        </div>
+      </div>
+      <div class="form-Group">
+        <div class="col-md-12">
+          <label> Comments*</label>
+          <textarea [class.is-invalid]="MyForm.get('comments')?.invalid && MyForm.get('comments')?.touched" type="text" class="form-control"  formControlName="comments"></textarea>
+          <small [class.d-none]="MyForm.get('comments')?.valid || MyForm.get('comments')?.untouched" class="text-danger">This Field is required and should contain 30 characters </small>
+        </div>
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="submit" class="btn" [disabled]="MyForm.invalid">SUBMIT FORM</button><br><br>
+        <alert [class.d-none]="MyForm.valid || MyForm.untouched" class="text-danger" type="danger">
+          <small [class.d-none]="MyForm.valid || MyForm.untouched" class="text-danger">Please Fill Complete Form for sumbit it</small>
+        </alert>
+
+      </div>
+    </form>
+
+    {{MyForm.value | json}}
+  </div>
+</div>
+
+<router-outlet></router-outlet>
